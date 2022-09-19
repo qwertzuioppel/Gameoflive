@@ -3,12 +3,13 @@
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 
-const resolution = 10;
+const resolution_x = 10;
+const resolution_y = 20;
 canvas.width = 500;
 canvas.height = 500;
 
-const COLS = canvas.width / resolution;
-const ROWS = canvas.height / resolution;
+const COLS = canvas.width / resolution_x;
+const ROWS = canvas.height / resolution_y;
 
 function buildGrid() {
   return new Array(COLS).fill(null)
@@ -67,7 +68,7 @@ function render(grid) {
       const cell = grid[col][row];
 
       ctx.beginPath();
-      ctx.rect(col * resolution, row * resolution, resolution, resolution);
+      ctx.rect(col * resolution_x, row * resolution_y, resolution_x, resolution_y);
       ctx.fillStyle = cell ? 'black' : 'white';
       ctx.fill();
       ctx.stroke();
